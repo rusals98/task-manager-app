@@ -100,7 +100,7 @@ router.get('/users/me', auth, async (req, res) => {
 //     // })
 // })
 
-// create an endpoint that clients can hit to update a SINGLE user by ID
+// create an endpoint that clients can hit to update their account
 router.patch('/users/me', auth, async (req, res) => {
     // CHECK IF THE FIELD(S) THE CLIENT IS TRYING TO UPDATE EXIST
 
@@ -150,7 +150,7 @@ router.patch('/users/me', auth, async (req, res) => {
     }
 })
 
-// create an endpoint that clients can hit to delete a SINGLE user by ID
+// create an endpoint that clients can hit to delete their account
 router.delete('/users/me', auth, async (req, res) => {
     try {
         // // req.params.id: grabbed the ID from the URL of the request
@@ -166,7 +166,7 @@ router.delete('/users/me', auth, async (req, res) => {
         // use 'req.user' instead of just 'user'
         res.send(req.user)
     } catch (e) {
-       res.send(500).send()
+       res.status(500).send()
     }
 })
 
